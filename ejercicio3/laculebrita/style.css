@@ -1,0 +1,15 @@
+#contenedor{
+    width: 60%;
+    height: 60px;
+    background-color: gray;
+    position: relative;
+}
+
+#culebrita{
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    
+}
