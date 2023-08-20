@@ -39,8 +39,19 @@ const showData=(arrayNotas)=>{
         }
 
         setTimeout(() => {
-            console.log(JSON.stringify(resuelve1))  
+            calcularProm(resuelve1)
         }, 2000);
+    })
+}
+
+
+
+const calcularProm=(objetoNotas)=>{
+    return new Promise ((resuelve2,rechaza)=>{
+        resuelve2=objetoNotas[0]+objetoNotas[1]+objetoNotas[2]
+        let resuFinal=resuelve2/3
+        setText(`El promedio es: ${resuFinal}`)
+
     })
 }
 
@@ -61,44 +72,6 @@ function miNota(nota1,nota2,nota3){
 }
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // function funcion2(arrayNotas, funcion3){
 
