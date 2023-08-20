@@ -1,13 +1,104 @@
-// function miNota(nota1,nota2,nota3){
+// const boton=document.getElementById('boton')
+// let nota1= (document.getElementById('nota1'))
+// let nota2=(document.getElementById('nota2'))
+// let nota3=(document.getElementById('nota3'))
 
-//     let arrayNotas=[]
-//     arrayNotas.push(parseFloat(nota1))
-//     arrayNotas.push(parseFloat(nota2))
-//     arrayNotas.push(parseFloat(nota3))
 
-//     funcion2(arrayNotas, funcion3)
+// boton.addEventListener('click',()=>{
+//     let resultado=parseInt(nota1.value)+parseInt(nota2.value)+parseInt(nota3.value)
+//     let resuFinal=resultado/3
     
-// }
+//     alert(resuFinal)
+// })
+
+let texto=document.getElementById('resultado')
+
+const setText=data=>{
+    texto.textContent=data
+    console.log(typeof(data))
+    console.log(data)
+    texto.textContent=data
+}
+
+const getData=()=>{
+    return new Promise((resuelve, rechaza)=>{  
+    setText('Calcular Notas?')
+    setTimeout(()=>{
+        resuelve(true)
+    }, 2000)
+})
+}
+
+const showData=(arrayNotas)=>{
+    return new Promise ((resuelve1,rechaza)=>{
+        setText('Esperando Autorizacion')
+        resuelve1={}
+        for (let index = 0; index < arrayNotas.length; index++) {
+            resuelve1[index]=arrayNotas[index]
+            
+        }
+
+        setTimeout(() => {
+            console.log(JSON.stringify(resuelve1))  
+        }, 2000);
+    })
+}
+
+function miNota(nota1,nota2,nota3){
+
+    let arrayNotas=[]
+    arrayNotas.push(parseFloat(nota1))
+    arrayNotas.push(parseFloat(nota2))
+    arrayNotas.push(parseFloat(nota3))
+
+    getData().then(valor=>{
+        if(valor){
+            return showData(arrayNotas)
+        }}).then(tal=>{
+            setText(tal)
+        })
+    
+}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function funcion2(arrayNotas, funcion3){
 
@@ -34,37 +125,34 @@
 //     return arrayPorcentajes
  
 // }
-const boton=document.getElementById('boton')
-let nota1= document.getElementById('nota1')
-let nota2=document.getElementById('nota2')
-let nota3=document.getElementById('nota3')
 
 
 
 
 
 
-function miNota(){
-    return new Promise((resuelve, rechaza)=>{
 
-        let arrayNotas=[parseFloat(nota1.value),parseFloat(nota2.value),parseFloat(nota3.value)]
+// function miNota(){
+//     return new Promise((resuelve, rechaza)=>{
 
-        resuelve={}
+//         let arrayNotas=[parseFloat(nota1.value),parseFloat(nota2.value),parseFloat(nota3.value)]
+
+//         resuelve={}
     
-        for (let i = 0; i < arrayNotas.length; i++) {
-            resuelve[i]=arrayNotas[i]
+//         for (let i = 0; i < arrayNotas.length; i++) {
+//             resuelve[i]=arrayNotas[i]
             
-        }
+//         }
         
         
-    })
+//     })
 
     
         
     
 
     
-}
+// }
 
 // function funcion2(){
 // return new Promise((resolve, reject)=>{
@@ -94,11 +182,11 @@ function miNota(){
 // }
 
 
-boton.addEventListener('click',()=>{
-    miNota().then(tal=>{
-return tal
-    })
-})
+// boton.addEventListener('click',()=>{
+//     miNota().then(tal=>{
+// return tal
+//     })
+// })
 
 
 
