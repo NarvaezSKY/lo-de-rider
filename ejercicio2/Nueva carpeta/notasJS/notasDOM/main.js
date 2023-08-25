@@ -1,9 +1,10 @@
 let texto=document.getElementById('resultado')
+let contenido=document.getElementById('contenido')
+console.log(contenido)
 
 const setText=data=>{
 
 
-    document.createElement('div')
     texto.textContent=data
     console.log(typeof(data))
     console.log(data)
@@ -34,6 +35,8 @@ const showData=(arrayNotas)=>{
     })
 }
 
+console.log("Papu cuando leas esto sabras que sos el mejor uwu att: wilma ruiz uwu");
+
 
 
 const calcularProm=(objetoNotas)=>{
@@ -51,6 +54,27 @@ function miNota(nota1,nota2,nota3){
     arrayNotas.push(parseFloat(nota1))
     arrayNotas.push(parseFloat(nota2))
     arrayNotas.push(parseFloat(nota3))
+
+    let divCosas=document.createElement('div')
+    divCosas.classList.add('divCosas')
+    arrayNotas.forEach((element)=>{
+
+        let nota=document.createElement('p')
+        nota.textContent=element
+        nota.classList.add('notas')
+        
+        divCosas.appendChild(nota)
+        divCosas.innerHTML=`
+       
+        
+        
+        <button class="boton">Eliminar</button>
+        <button class="boton">Editar</button>
+        <button class="boton">Guardar</button>`
+    }
+    )
+   contenido.appendChild(divCosas)
+    console.log(texto)
 
     getData().then(valor=>{
         if(valor){

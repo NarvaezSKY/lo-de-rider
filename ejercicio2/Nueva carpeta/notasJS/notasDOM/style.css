@@ -1,0 +1,27 @@
+.divCosas{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,fr);
+    background-color: rgb(126, 126, 126);
+    width: 100%;
+    height: 100px;
+    margin: 5px;
+    position: relative;
+}
+
+.notas{
+    
+    right: 0%;
+
+}
+
+.boton{
+    border-style: none;
+    right: 0%;
+    
+}
+
+.boton:hover{
+    background-color: rgb(58, 104, 243);
+    transition: 500ms;
+}
