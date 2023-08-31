@@ -37,7 +37,14 @@ const showData=(arrayNotas)=>{
 
 console.log("Papu cuando leas esto sabras que sos el mejor uwu att: wilma ruiz uwu");
 
-
+const hacerEditables=()=>{
+    return new Promise((resuelve, rechaza)=>{
+        setTimeout(() => {
+            resuelve(true)
+            console.log('editar es true :V')
+        }, 2000);
+    })
+}
 
 const calcularProm=(objetoNotas)=>{
     return new Promise ((resuelve2,rechaza)=>{
@@ -56,24 +63,43 @@ function miNota(nota1,nota2,nota3){
     arrayNotas.push(parseFloat(nota3))
 
     let divCosas=document.createElement('div')
+    let divbotones=document.createElement('div')
     divCosas.classList.add('divCosas')
     arrayNotas.forEach((element)=>{
 
-        let nota=document.createElement('p')
-        nota.textContent=element
+        let nota=document.createElement('input')
+        nota.type=Number
+        nota.disabled=true
+
+     
+        nota.placeholder=element
         nota.classList.add('notas')
         
+
+
+        let botonEliminar=document.createElement('button')
+        let botonEditar=document.createElement('button')
+        let botonGuardar=document.createElement('button')
+        botonEditar.textContent="so"
+
         divCosas.appendChild(nota)
-        divCosas.innerHTML=`
-       
-        
-        
-        <button class="boton">Eliminar</button>
-        <button class="boton">Editar</button>
-        <button class="boton">Guardar</button>`
+        divbotones.appendChild(botonEliminar,botonEliminar,botonGuardar)
+        divbotones.classList.add('divbotones')
+
+botonEditar.addEventListener('click', ()=>{
+    hacerEditables(nota).then(condicion=>{
+        if (condicion){
+            nota.disabled=false
+        }
+    })
+})
+
+
+
     }
     )
    contenido.appendChild(divCosas)
+   contenido.appendChild(divbotones)
     console.log(texto)
 
     getData().then(valor=>{
@@ -82,5 +108,11 @@ function miNota(nota1,nota2,nota3){
         }}).then(tal=>{
             setText(tal)
         })
+
+        // hacerEditables(nota).then(condicion=>{
+        //     if (condicion){
+        //         alert('quecñoñ')
+        //     }
+        // })
     
 }
