@@ -50,7 +50,7 @@ const calcularProm=(objetoNotas)=>{
     return new Promise ((resuelve2,rechaza)=>{
         resuelve2=objetoNotas[0]+objetoNotas[1]+objetoNotas[2]
         let resuFinal=resuelve2/3
-        setText(`El promedio es: ${resuFinal}`)
+        return setText(`El promedio es: ${resuFinal}`)
 
     })
 }
@@ -66,7 +66,7 @@ function miNota(nota1,nota2,nota3){
     let divbotones=document.createElement('div')
     divCosas.classList.add('divCosas')
     arrayNotas.forEach((element)=>{
-
+        divbotones.innerHTML=`<p><button>Eliminar</button></p>`
         let nota=document.createElement('input')
         nota.type=Number
         nota.disabled=true
@@ -77,22 +77,13 @@ function miNota(nota1,nota2,nota3){
         
 
 
-        let botonEliminar=document.createElement('button')
-        let botonEditar=document.createElement('button')
-        let botonGuardar=document.createElement('button')
-        botonEditar.textContent="so"
+        
+       
 
         divCosas.appendChild(nota)
-        divbotones.appendChild(botonEliminar,botonEliminar,botonGuardar)
+        
         divbotones.classList.add('divbotones')
 
-botonEditar.addEventListener('click', ()=>{
-    hacerEditables(nota).then(condicion=>{
-        if (condicion){
-            nota.disabled=false
-        }
-    })
-})
 
 
 
