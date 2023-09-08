@@ -5,10 +5,13 @@ console.log(contenido)
 const setText=data=>{
 
 
-    texto.textContent=data
-    console.log(typeof(data))
-    console.log(data)
-    texto.textContent=data
+    // texto.textContent=data
+    // console.log(typeof(data))
+    // console.log(data)
+    let div=document.createElement('div')
+    div.innerHTML=data
+    contenido.appendChild(div)
+
 }
 
 const getData=()=>{
@@ -16,7 +19,7 @@ const getData=()=>{
     setText('Calcular Notas?')
     setTimeout(()=>{
         resuelve(true)
-    }, 2000)
+    }, 1000)
 })
 }
 
@@ -31,7 +34,7 @@ const showData=(arrayNotas)=>{
 
         setTimeout(() => {
             calcularProm(resuelve1)
-        }, 2000);
+        }, 1000);
     })
 }
 
@@ -65,7 +68,9 @@ function miNota(nota1,nota2,nota3){
     let divCosas=document.createElement('div')
     let divbotones=document.createElement('div')
     divCosas.classList.add('divCosas')
+
     arrayNotas.forEach((element)=>{
+        console.log(arrayNotas)
         divbotones.innerHTML=`<p><button>Eliminar</button></p>`
         let nota=document.createElement('input')
         nota.type=Number
@@ -75,35 +80,32 @@ function miNota(nota1,nota2,nota3){
         nota.placeholder=element
         nota.classList.add('notas')
         
-
-
-        
-       
-
         divCosas.appendChild(nota)
         
         divbotones.classList.add('divbotones')
-
-
-
-
     }
     )
    contenido.appendChild(divCosas)
    contenido.appendChild(divbotones)
-    console.log(texto)
-
+   let div =document.createElement('div')
     getData().then(valor=>{
-        if(valor){
-            return showData(arrayNotas)
-        }}).then(tal=>{
-            setText(tal)
-        })
+    if(valor){
+        return showData(arrayNotas)
+    }}).then(tal=>{
+        setText(tal)
+        
+    })
+    contenido.appendChild(div)
+   
+
+   
 
         // hacerEditables(nota).then(condicion=>{
         //     if (condicion){
         //         alert('quecñoñ')
         //     }
         // })
+
+
     
 }

@@ -68,6 +68,7 @@ function miNota(nota1,nota2,nota3){
         }}).then(tal=>{
             setText(tal)
         })
+        .catch(err=>console.log(err))
     
 }
 
